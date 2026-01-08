@@ -1,0 +1,123 @@
+<div id="app">
+  <!-- Header -->
+  <div class="header">
+    <h1>CYBERDELICS: THE CONVERGENCE</h1>
+    <p class="subtitle">Watch how separate fields merged to create a new discipline</p>
+  </div>
+  
+  <!-- Timeline Controls -->
+  <div id="timeline-container">
+    <div class="timeline-header">
+      <span class="timeline-label">Timeline</span>
+      <span id="current-year" class="current-year">2015</span>
+    </div>
+    <input 
+      type="range" 
+      id="timeline-slider" 
+      min="2015" 
+      max="2025" 
+      value="2015" 
+      step="1"
+    />
+    <div class="timeline-labels">
+      <span>2015</span>
+      <span>2020</span>
+      <span>2025</span>
+    </div>
+  </div>
+  <!-- ADD THIS: Help Button -->
+  <button class="help-button" id="help-button" onclick="toggleHelp()" title="Keyboard shortcuts">
+    ?
+  </button>
+  
+  <button class="reset-tutorial-button" id="reset-tutorial-button" title="Reset tutorial">
+    ↻
+  </button>
+  <!-- ADD THIS: Back Button (appears when zoomed) -->
+  <button class="back-button" id="back-button">
+    Back to Network View
+  </button>
+  
+   <!-- Zoom Instructions -->
+<div class="zoom-instructions" id="zoom-instructions">
+  ⏱️ Move the timeline above to see this domain's evolution over time
+</div>
+
+<!-- ADD THIS: ESC Hint (top-right corner) -->
+<div class="esc-hint" id="esc-hint">
+  Press <kbd>ESC</kbd> to return
+</div>
+  
+  <!-- ADD THIS: Help Overlay -->
+  <div class="help-overlay" id="help-overlay">
+    <div class="help-content">
+      <h2>KEYBOARD SHORTCUTS</h2>
+      <div class="help-section">
+        <div class="help-item">
+          <span class="help-key">1-6</span>
+          <span class="help-description">Quick select domains</span>
+        </div>
+        <div class="help-item">
+          <span class="help-key">Click</span>
+          <span class="help-description">Select and zoom into domain</span>
+        </div>
+        <div class="help-item">
+          <span class="help-key">ESC</span>
+          <span class="help-description">Zoom out / Deselect</span>
+        </div>
+        <div class="help-item">
+          <span class="help-key">Space</span>
+          <span class="help-description">Toggle zoom</span>
+        </div>
+        <div class="help-item">
+          <span class="help-key">← →</span>
+          <span class="help-description">Navigate timeline (when zoomed)</span>
+        </div>
+        <div class="help-item">
+          <span class="help-key">H or ?</span>
+          <span class="help-description">Toggle this help</span>
+        </div>
+      </div>
+      <div class="help-footer">
+        <p>Scrub the timeline to see how each domain evolved over time</p>
+        <button class="help-close" onclick="toggleHelp()">Got it!</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ADD THIS: Loading Indicator (after timeline, before SVG) -->
+  <div class="loading-indicator" id="loading-indicator">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Loading content...</div>
+  </div>
+  
+    <!-- ADD THIS: Tutorial Overlay System -->
+  <div class="tutorial-overlay" id="tutorial-overlay">
+    <div class="tutorial-backdrop"></div>
+    <div class="tutorial-spotlight" id="tutorial-spotlight"></div>
+    <div class="tutorial-tooltip" id="tutorial-tooltip">
+      <div class="tutorial-progress" id="tutorial-progress"></div>
+      <div class="tutorial-content">
+        <h3 class="tutorial-title" id="tutorial-title"></h3>
+        <p class="tutorial-text" id="tutorial-text"></p>
+        <div class="tutorial-actions">
+          <button class="tutorial-skip" id="tutorial-skip">Skip</button>
+          <button class="tutorial-next" id="tutorial-next">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ADD THIS: Contextual Hint System -->
+  <div class="contextual-hint" id="contextual-hint">
+    <div class="hint-content">
+      <span class="hint-icon">💡</span>
+      <span class="hint-text" id="hint-text"></span>
+      <button class="hint-close" id="hint-close">×</button>
+    </div>
+  </div>
+  
+  
+  <!-- Main Visualization -->
+  <svg id="network-viz" viewBox="0 0 1000 800"></svg>
+</div>
